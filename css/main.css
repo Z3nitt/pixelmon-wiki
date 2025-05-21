@@ -294,14 +294,31 @@ body {
 }
 
 .evolution-chain {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
   gap: 1rem;
-  flex-wrap: wrap;
   margin-bottom: 1.5rem;
 }
+
+.evolution-chain .stage.next .next-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.evolution-chain h3 {
+  margin-bottom: 0.75rem;
+}
+
+.evolution-chain .stage strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
 .evolution-chain .stage {
-  text-align: center;
+  display: block !important;
 }
 .evolution-chain .evo-sprite {
   width: 120px;
