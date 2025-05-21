@@ -22,7 +22,7 @@
       
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="/images/1302-base.png" alt="Cosmoem de Umbría" class="main-sprite"></div>
+    <img id="poke-img" src="images/1302-base.png" alt="Cosmoem de Umbría" class="main-sprite"></div>
     <div
       class="info">
       
@@ -1630,8 +1630,8 @@
             
             <div class="stage prev">
               <h3>Evoluciona de</h3>
-              <a href="/pokemon/1301-base/">
-                <img src="/images/1301-base.png" class="evo-sprite" alt="Cosmog de Umbría)">
+              <a href="pokemon/1301-base/">
+                <img src="images/1301-base.png" class="evo-sprite" alt="Cosmog de Umbría)">
                   <div>Cosmog de Umbría)</div>
                   <div class="evo-level">por Nivel 43</div>
                 </a>
@@ -1642,29 +1642,29 @@
                 <h3>Evoluciona a</h3>
                 
                   
-                  <a href="/pokemon/1303-base/">
-                    <img src="/images/1303-base.png" class="evo-sprite" alt="Solgaleo de Umbría (Carmesí)">
+                  <a href="pokemon/1303-base/">
+                    <img src="images/1303-base.png" class="evo-sprite" alt="Solgaleo de Umbría (Carmesí)">
                       <div>Solgaleo de Umbría (Carmesí)</div>
                       <div class="evo-level">por Nivel 53 + Día</div>
                     </a>
                   
                   
-                  <a href="/pokemon/1304-base/">
-                    <img src="/images/1304-base.png" class="evo-sprite" alt="Solgaleo de Umbría (Umbral)">
+                  <a href="pokemon/1304-base/">
+                    <img src="images/1304-base.png" class="evo-sprite" alt="Solgaleo de Umbría (Umbral)">
                       <div>Solgaleo de Umbría (Umbral)</div>
                       <div class="evo-level">por Nivel 53 + Noche</div>
                     </a>
                   
                   
-                  <a href="/pokemon/1305-base/">
-                    <img src="/images/1305-base.png" class="evo-sprite" alt="Lunala de Umbría (Carmesí)">
+                  <a href="pokemon/1305-base/">
+                    <img src="images/1305-base.png" class="evo-sprite" alt="Lunala de Umbría (Carmesí)">
                       <div>Lunala de Umbría (Carmesí)</div>
                       <div class="evo-level">por Nivel 53 + Dia Lloviendo</div>
                     </a>
                   
                   
-                  <a href="/pokemon/1306-base/">
-                    <img src="/images/1306-base.png" class="evo-sprite" alt="Lunala de Umbría (Umbral)">
+                  <a href="pokemon/1306-base/">
+                    <img src="images/1306-base.png" class="evo-sprite" alt="Lunala de Umbría (Umbral)">
                       <div>Lunala de Umbría (Umbral)</div>
                       <div class="evo-level">por Nivel 53 + Noche Lloviendo</div>
                     </a>
@@ -2435,14 +2435,17 @@
           </div>
         </div>
         <script>
+          // Exponemos pathPrefix a JavaScript
+          window.pathPrefix = "";
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.appearance-toggle .img-btn').forEach(btn => {
               btn.addEventListener('click', () => {
                 document.querySelectorAll('.appearance-toggle .img-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.getElementById('poke-img').src = `/images/${
-                  btn.dataset.img
-                }.png`;
+                const imgId = btn.dataset.img;
+                document.getElementById('poke-img').src = `${
+                  window.pathPrefix
+                }images/${imgId}.png`;
               });
             });
           });

@@ -22,7 +22,7 @@
       
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="/images/1095-base.png" alt="Togetic de Umbría (Carmesí) (easter)" class="main-sprite"></div>
+    <img id="poke-img" src="images/1095-base.png" alt="Togetic de Umbría (Carmesí) (easter)" class="main-sprite"></div>
     <div
       class="info">
       
@@ -1654,8 +1654,8 @@
             
             <div class="stage prev">
               <h3>Evoluciona de</h3>
-              <a href="/pokemon/1093-base/">
-                <img src="/images/1093-base.png" class="evo-sprite" alt="Togepi de Umbría (Carmesí)">
+              <a href="pokemon/1093-base/">
+                <img src="images/1093-base.png" class="evo-sprite" alt="Togepi de Umbría (Carmesí)">
                   <div>Togepi de Umbría (Carmesí)</div>
                   <div class="evo-level">por Felicidad + Nivel</div>
                 </a>
@@ -1666,8 +1666,8 @@
                 <h3>Evoluciona a</h3>
                 
                   
-                  <a href="/pokemon/1207-base/">
-                    <img src="/images/1207-base.png" class="evo-sprite" alt="Togekiss de Umbría (Carmesí)">
+                  <a href="pokemon/1207-base/">
+                    <img src="images/1207-base.png" class="evo-sprite" alt="Togekiss de Umbría (Carmesí)">
                       <div>Togekiss de Umbría (Carmesí)</div>
                       <div class="evo-level">por Piedra Insólita</div>
                     </a>
@@ -2444,14 +2444,17 @@
           </div>
         </div>
         <script>
+          // Exponemos pathPrefix a JavaScript
+          window.pathPrefix = "";
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.appearance-toggle .img-btn').forEach(btn => {
               btn.addEventListener('click', () => {
                 document.querySelectorAll('.appearance-toggle .img-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.getElementById('poke-img').src = `/images/${
-                  btn.dataset.img
-                }.png`;
+                const imgId = btn.dataset.img;
+                document.getElementById('poke-img').src = `${
+                  window.pathPrefix
+                }images/${imgId}.png`;
               });
             });
           });

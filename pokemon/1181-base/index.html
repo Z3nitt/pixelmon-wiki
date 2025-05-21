@@ -22,7 +22,7 @@
       
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="/images/1181-base.png" alt="Monferno de Umbría" class="main-sprite"></div>
+    <img id="poke-img" src="images/1181-base.png" alt="Monferno de Umbría" class="main-sprite"></div>
     <div
       class="info">
       
@@ -1650,8 +1650,8 @@
             
             <div class="stage prev">
               <h3>Evoluciona de</h3>
-              <a href="/pokemon/1180-base/">
-                <img src="/images/1180-base.png" class="evo-sprite" alt="Chimchar de Umbría)">
+              <a href="pokemon/1180-base/">
+                <img src="images/1180-base.png" class="evo-sprite" alt="Chimchar de Umbría)">
                   <div>Chimchar de Umbría)</div>
                   <div class="evo-level">por Nivel 14</div>
                 </a>
@@ -1662,15 +1662,15 @@
                 <h3>Evoluciona a</h3>
                 
                   
-                  <a href="/pokemon/1182-base/">
-                    <img src="/images/1182-base.png" class="evo-sprite" alt="Infernape de Umbría (Carmesí)">
+                  <a href="pokemon/1182-base/">
+                    <img src="images/1182-base.png" class="evo-sprite" alt="Infernape de Umbría (Carmesí)">
                       <div>Infernape de Umbría (Carmesí)</div>
                       <div class="evo-level">por Nivel 36 + Piedra Insólita + Día</div>
                     </a>
                   
                   
-                  <a href="/pokemon/1183-base/">
-                    <img src="/images/1183-base.png" class="evo-sprite" alt="Infernape de Umbría (Umbral)">
+                  <a href="pokemon/1183-base/">
+                    <img src="images/1183-base.png" class="evo-sprite" alt="Infernape de Umbría (Umbral)">
                       <div>Infernape de Umbría (Umbral)</div>
                       <div class="evo-level">por Nivel 36 + Piedra Insólita + Noche</div>
                     </a>
@@ -2445,14 +2445,17 @@
           </div>
         </div>
         <script>
+          // Exponemos pathPrefix a JavaScript
+          window.pathPrefix = "";
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.appearance-toggle .img-btn').forEach(btn => {
               btn.addEventListener('click', () => {
                 document.querySelectorAll('.appearance-toggle .img-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.getElementById('poke-img').src = `/images/${
-                  btn.dataset.img
-                }.png`;
+                const imgId = btn.dataset.img;
+                document.getElementById('poke-img').src = `${
+                  window.pathPrefix
+                }images/${imgId}.png`;
               });
             });
           });

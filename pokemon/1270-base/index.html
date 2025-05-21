@@ -22,7 +22,7 @@
       
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="/images/1270-base.png" alt="Genesect de Umbría" class="main-sprite"></div>
+    <img id="poke-img" src="images/1270-base.png" alt="Genesect de Umbría" class="main-sprite"></div>
     <div
       class="info">
       
@@ -1658,14 +1658,17 @@
           </div>
         </div>
         <script>
+          // Exponemos pathPrefix a JavaScript
+          window.pathPrefix = "";
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.appearance-toggle .img-btn').forEach(btn => {
               btn.addEventListener('click', () => {
                 document.querySelectorAll('.appearance-toggle .img-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.getElementById('poke-img').src = `/images/${
-                  btn.dataset.img
-                }.png`;
+                const imgId = btn.dataset.img;
+                document.getElementById('poke-img').src = `${
+                  window.pathPrefix
+                }images/${imgId}.png`;
               });
             });
           });

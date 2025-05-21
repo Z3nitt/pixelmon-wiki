@@ -22,7 +22,7 @@
       
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="/images/1114-base.png" alt="Houndoom de Umbría" class="main-sprite"></div>
+    <img id="poke-img" src="images/1114-base.png" alt="Houndoom de Umbría" class="main-sprite"></div>
     <div
       class="info">
       
@@ -2416,8 +2416,8 @@
                 
                   
                   <div class="stage mega">
-                    <a href="/pokemon/1114-mega/">
-                      <img src="/images/1114-mega.png" class="evo-sprite" alt="Mega Houndoom de Umbría)">
+                    <a href="pokemon/1114-mega/">
+                      <img src="images/1114-mega.png" class="evo-sprite" alt="Mega Houndoom de Umbría)">
                         <div>Mega Houndoom de Umbría)</div>
                       </a>
                     </div>
@@ -2440,14 +2440,17 @@
           </div>
         </div>
         <script>
+          // Exponemos pathPrefix a JavaScript
+          window.pathPrefix = "";
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.appearance-toggle .img-btn').forEach(btn => {
               btn.addEventListener('click', () => {
                 document.querySelectorAll('.appearance-toggle .img-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.getElementById('poke-img').src = `/images/${
-                  btn.dataset.img
-                }.png`;
+                const imgId = btn.dataset.img;
+                document.getElementById('poke-img').src = `${
+                  window.pathPrefix
+                }images/${imgId}.png`;
               });
             });
           });

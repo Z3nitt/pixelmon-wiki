@@ -22,7 +22,7 @@
       
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="/images/1147-base.png" alt="Vibrava de Umbría" class="main-sprite"></div>
+    <img id="poke-img" src="images/1147-base.png" alt="Vibrava de Umbría" class="main-sprite"></div>
     <div
       class="info">
       
@@ -1657,8 +1657,8 @@
             
             <div class="stage prev">
               <h3>Evoluciona de</h3>
-              <a href="/pokemon/1146-base/">
-                <img src="/images/1146-base.png" class="evo-sprite" alt="Trapinch de Umbría)">
+              <a href="pokemon/1146-base/">
+                <img src="images/1146-base.png" class="evo-sprite" alt="Trapinch de Umbría)">
                   <div>Trapinch de Umbría)</div>
                   <div class="evo-level">por Nivel 35</div>
                 </a>
@@ -1669,15 +1669,15 @@
                 <h3>Evoluciona a</h3>
                 
                   
-                  <a href="/pokemon/1148-base/">
-                    <img src="/images/1148-base.png" class="evo-sprite" alt="Flygon de Umbría (Carmesí)">
+                  <a href="pokemon/1148-base/">
+                    <img src="images/1148-base.png" class="evo-sprite" alt="Flygon de Umbría (Carmesí)">
                       <div>Flygon de Umbría (Carmesí)</div>
                       <div class="evo-level">por Piedra Insólita + Nivel 45 + Día</div>
                     </a>
                   
                   
-                  <a href="/pokemon/1149-base/">
-                    <img src="/images/1149-base.png" class="evo-sprite" alt="Flygon de Umbría (Umbral)">
+                  <a href="pokemon/1149-base/">
+                    <img src="images/1149-base.png" class="evo-sprite" alt="Flygon de Umbría (Umbral)">
                       <div>Flygon de Umbría (Umbral)</div>
                       <div class="evo-level">por Piedra Insólita + Nivel 45 + Noche</div>
                     </a>
@@ -2454,14 +2454,17 @@
           </div>
         </div>
         <script>
+          // Exponemos pathPrefix a JavaScript
+          window.pathPrefix = "";
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.appearance-toggle .img-btn').forEach(btn => {
               btn.addEventListener('click', () => {
                 document.querySelectorAll('.appearance-toggle .img-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.getElementById('poke-img').src = `/images/${
-                  btn.dataset.img
-                }.png`;
+                const imgId = btn.dataset.img;
+                document.getElementById('poke-img').src = `${
+                  window.pathPrefix
+                }images/${imgId}.png`;
               });
             });
           });

@@ -22,7 +22,7 @@
       
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="/images/1156-base.png" alt="Feebas de Umbría" class="main-sprite"></div>
+    <img id="poke-img" src="images/1156-base.png" alt="Feebas de Umbría" class="main-sprite"></div>
     <div
       class="info">
       
@@ -886,22 +886,22 @@
                 <h3>Evoluciona a</h3>
                 
                   
-                  <a href="/pokemon/1157-base/">
-                    <img src="/images/1157-base.png" class="evo-sprite" alt="Milotic de Umbría (Carmesí)">
+                  <a href="pokemon/1157-base/">
+                    <img src="images/1157-base.png" class="evo-sprite" alt="Milotic de Umbría (Carmesí)">
                       <div>Milotic de Umbría (Carmesí)</div>
                       <div class="evo-level">por Intercambio con Eviolite equipado</div>
                     </a>
                   
                   
-                  <a href="/pokemon/1158-base/">
-                    <img src="/images/1158-base.png" class="evo-sprite" alt="Milotic de Umbría (Umbral)">
+                  <a href="pokemon/1158-base/">
+                    <img src="images/1158-base.png" class="evo-sprite" alt="Milotic de Umbría (Umbral)">
                       <div>Milotic de Umbría (Umbral)</div>
                       <div class="evo-level">por Intercambio con Flame Orb equipado</div>
                     </a>
                   
                   
-                  <a href="/pokemon/1159-base/">
-                    <img src="/images/1159-base.png" class="evo-sprite" alt="Milotic de Umbría (Locura)">
+                  <a href="pokemon/1159-base/">
+                    <img src="images/1159-base.png" class="evo-sprite" alt="Milotic de Umbría (Locura)">
                       <div>Milotic de Umbría (Locura)</div>
                       <div class="evo-level">por Intercambio con Prism Scale equipado</div>
                     </a>
@@ -1678,14 +1678,17 @@
           </div>
         </div>
         <script>
+          // Exponemos pathPrefix a JavaScript
+          window.pathPrefix = "";
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.appearance-toggle .img-btn').forEach(btn => {
               btn.addEventListener('click', () => {
                 document.querySelectorAll('.appearance-toggle .img-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.getElementById('poke-img').src = `/images/${
-                  btn.dataset.img
-                }.png`;
+                const imgId = btn.dataset.img;
+                document.getElementById('poke-img').src = `${
+                  window.pathPrefix
+                }images/${imgId}.png`;
               });
             });
           });

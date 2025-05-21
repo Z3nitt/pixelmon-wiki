@@ -22,7 +22,7 @@
       
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="/images/1347-base.png" alt="Wyrdeer de Umbría" class="main-sprite"></div>
+    <img id="poke-img" src="images/1347-base.png" alt="Wyrdeer de Umbría" class="main-sprite"></div>
     <div
       class="info">
       
@@ -1651,8 +1651,8 @@
             
             <div class="stage prev">
               <h3>Evoluciona de</h3>
-              <a href="/pokemon/1115-base/">
-                <img src="/images/1115-base.png" class="evo-sprite" alt="Stantler de Umbría)">
+              <a href="pokemon/1115-base/">
+                <img src="images/1115-base.png" class="evo-sprite" alt="Stantler de Umbría)">
                   <div>Stantler de Umbría)</div>
                   <div class="evo-level">por Nivel 21 + Pokemon de la region de Hissui en la party</div>
                 </a>
@@ -2427,14 +2427,17 @@
           </div>
         </div>
         <script>
+          // Exponemos pathPrefix a JavaScript
+          window.pathPrefix = "";
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.appearance-toggle .img-btn').forEach(btn => {
               btn.addEventListener('click', () => {
                 document.querySelectorAll('.appearance-toggle .img-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.getElementById('poke-img').src = `/images/${
-                  btn.dataset.img
-                }.png`;
+                const imgId = btn.dataset.img;
+                document.getElementById('poke-img').src = `${
+                  window.pathPrefix
+                }images/${imgId}.png`;
               });
             });
           });

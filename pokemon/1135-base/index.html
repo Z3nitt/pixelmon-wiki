@@ -22,7 +22,7 @@
       
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="/images/1135-base.png" alt="Beautifly de Umbría" class="main-sprite"></div>
+    <img id="poke-img" src="images/1135-base.png" alt="Beautifly de Umbría" class="main-sprite"></div>
     <div
       class="info">
       
@@ -1647,8 +1647,8 @@
             
             <div class="stage prev">
               <h3>Evoluciona de</h3>
-              <a href="/pokemon/1134-base/">
-                <img src="/images/1134-base.png" class="evo-sprite" alt="Silcoon de Umbría)">
+              <a href="pokemon/1134-base/">
+                <img src="images/1134-base.png" class="evo-sprite" alt="Silcoon de Umbría)">
                   <div>Silcoon de Umbría)</div>
                   <div class="evo-level">por Nivel 10</div>
                 </a>
@@ -2423,14 +2423,17 @@
           </div>
         </div>
         <script>
+          // Exponemos pathPrefix a JavaScript
+          window.pathPrefix = "";
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.appearance-toggle .img-btn').forEach(btn => {
               btn.addEventListener('click', () => {
                 document.querySelectorAll('.appearance-toggle .img-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.getElementById('poke-img').src = `/images/${
-                  btn.dataset.img
-                }.png`;
+                const imgId = btn.dataset.img;
+                document.getElementById('poke-img').src = `${
+                  window.pathPrefix
+                }images/${imgId}.png`;
               });
             });
           });
