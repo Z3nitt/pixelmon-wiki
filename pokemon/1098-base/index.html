@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wiki Pixelmon Eclipse Carmesí</title>
-    <base href="">
+    <base href="/pixelmon-wiki/">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -27,7 +27,7 @@
     <main class="container mt-4">
 <div class="poke-detail">
   <div class="image">
-    <img id="poke-img" src="images/1098-base.png" alt="Aipom de Umbría" class="main-sprite"></div>
+    <img id="poke-img" src="/pixelmon-wiki/images/1098-base.png" alt="Aipom de Umbría" class="main-sprite"></div>
     <div
       class="info">
       
@@ -905,8 +905,8 @@
                 <h3>Evoluciona a</h3>
                 
                   
-                  <a href="pokemon/1191-base/">
-                    <img src="images/1191-base.png" class="evo-sprite" alt="Ambipom de Umbría)">
+                  <a href="/pixelmon-wiki/pokemon/1191-base/">
+                    <img src="/pixelmon-wiki/images/1191-base.png" class="evo-sprite" alt="Ambipom de Umbría)">
                       <div>Ambipom de Umbría)</div>
                       <div class="evo-level">por Nivel 26</div>
                     </a>
@@ -1688,7 +1688,7 @@
               const imgId = btn.dataset.img;
               document.getElementById('poke-img').src = `${
                 window.location.origin
-              }images/${imgId}.png`;
+              }/pixelmon-wiki/images/${imgId}.png`;
             });
           });
         </script></main>
