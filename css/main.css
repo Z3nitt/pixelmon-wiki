@@ -408,3 +408,29 @@ body {
   color: #fff;
 }
 
+/* === Forzar Evolución en columna === */
+.evolution-chain {
+  display: block !important;
+  margin-bottom: 1.5rem;
+}
+
+.evolution-chain h3 {
+  display: block !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.evolution-chain .stage {
+  display: block !important;
+  margin-bottom: 1rem !important;
+}
+
+.evolution-chain .stage strong {
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Acomodar lista de “Evoluciona a” */
+.evolution-chain .stage.next .next-list {
+  display: block !important;
+  margin-top: 0.5rem !important;
+}
