@@ -8,7 +8,7 @@
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="…"
+      integrity="sha384-VOjH...TU"
       crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -27,7 +27,6 @@
     <div id="search-results"></div>
   </div>
   <script>
-    // Serializamos tu array para el buscador
     window.POKEMON_LIST = [
   {
     "id": 1018,
@@ -39152,7 +39151,6 @@
       </ul>
     </div>
     <script>
-      // Helper debounce
       function debounce(fn, delay) {
         let timeout;
         return(...args) => {
@@ -39164,34 +39162,21 @@
         const input = document.getElementById('search');
         const clearBtn = document.getElementById('clear-search');
         const listItems = Array.from(document.querySelectorAll('.pokemon-list li'));
-        // 1) Pre-cachear todo el texto en lowercase
-        listItems.forEach(li => {
-          li.dataset.text = li.innerText.toLowerCase();
-        });
-        // 2) Función de filtrado usando la clase .hidden
-        function filterList(query) {
-          listItems.forEach(li => {
-            const match = li
-              .dataset
-              .text
-              .includes(query);
-            li.classList.toggle('hidden', ! match);
-          });
-        }
-        // 3) Debounce para agrupar eventos rápidos
+        listItems.forEach(li => li.dataset.text = li.innerText.toLowerCase());
         const runFilter = debounce(() => {
           const q = input
             .value
             .trim()
             .toLowerCase();
-          if (! q) {
+          listItems.forEach(li => li.classList.toggle('hidden', q && !li
+            .dataset
+            .text
+            .includes(q)));
+          if (! input.value.trim()) 
             listItems.forEach(li => li.classList.remove('hidden'));
-            return;
-          }
-          filterList(q);
+          
         }, 100);
         input.addEventListener('input', runFilter);
-        // Limpia búsqueda
         clearBtn.addEventListener('click', () => {
           input.value = '';
           listItems.forEach(li => li.classList.remove('hidden'));
