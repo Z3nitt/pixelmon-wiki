@@ -1,0 +1,393 @@
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Siempre reserva el hueco de la scrollbar en todo el documento */
+html {
+  overflow-y: scroll;
+  /* En navegadores modernos, también puedes reforzar: */
+  scrollbar-gutter: stable;
+}
+
+
+/* Body y tipografía */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #333;
+  background: url('/wallpaper.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+
+#search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;             /* aprovecha todo el ancho */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 10;
+}
+#search-results a:hover {
+  background: #f1f3f5;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* o el ancho que quieras */
+  margin: 1rem auto;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.clear-btn:focus {
+  outline: none;
+}
+
+
+
+.navbar {
+  text-align: center;
+  padding: 1rem 0;
+  background: rgba(0,0,0,0.5);
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1024px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Lista en home */
+.pokemon-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  gap: 1.5rem;
+  padding: 0;
+  margin: 2rem 0;
+
+}
+
+.pokemon-list li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255,255,255,0.8);
+  padding: 0 0.5rem;
+}
+
+
+.pokemon-list li a h4,
+.pokemon-list li a p {
+  width: 100%;
+  margin: 0.5rem 0 0;
+}
+
+.pokemon-list li a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.pokemon-list img {
+  width: 100%;
+  display: block;
+}
+
+/* Ficha individual */
+.poke-detail {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+  max-width: 900px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.poke-detail .image {
+  flex: 0 0 40%;
+  background: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;            /* menos espacio alrededor */
+}
+.poke-detail .image img {
+  max-width: 120%;
+  max-height: 120%;
+  transform: scale(1.2);
+}
+
+.poke-detail .info {
+  flex: 1 1 60%;
+  padding: 1.5rem;
+}
+
+
+.poke-detail .info h2 {
+  margin-bottom: 1rem;
+  color: #0057b7;
+}
+
+.poke-detail table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.poke-detail th, .poke-detail td {
+  padding: 0.5rem;
+  border: 1px solid #dee2e6;
+}
+
+.poke-detail th {
+  background: #f1f3f5;
+  text-align: left;
+}
+
+/* Badges de tipo */
+.badge {
+  display: inline-block;
+  padding: .3em .6em;
+  font-size: .85em;
+  font-weight: 600;
+  color: #fff !important;
+  border-radius: .2rem;
+  margin: .25rem .25rem 0 0;
+}
+
+.badge-secondary {
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
+/* Movimientos y otras secciones */
+.poke-detail section {
+  margin-bottom: 1.5rem;
+}
+
+.poke-detail section h3 {
+  margin-bottom: .5rem;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: .25rem;
+  color: #333;
+}
+
+.poke-detail ul {
+  list-style: disc inside;
+}
+
+.poke-detail .skins img {
+  width: 64px;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+}
+
+/* Fondos de tipo (con !important para sobreescribir Bootstrap) */
+.type-normal    { background-color: #A8A77A !important; }
+.type-fuego      { background-color: #EE8130 !important; }
+.type-agua     { background-color: #6390F0 !important; }
+.type-planta     { background-color: #7AC74C !important; }
+.type-eléctrico  { background-color: #F7D02C !important; }
+.type-hielo       { background-color: #96D9D6 !important; }
+.type-lucha  { background-color: #C22E28 !important; }
+.type-veneno    { background-color: #A33EA1 !important; }
+.type-tierra    { background-color: #E2BF65 !important; }
+.type-volador    { background-color: #A98FF3 !important; }
+.type-psíquico   { background-color: #F95587 !important; }
+.type-bicho       { background-color: #A6B91A !important; }
+.type-roca      { background-color: #B6A136 !important; }
+.type-fantasma     { background-color: #735797 !important; }
+.type-dragón    { background-color: #6F35FC !important; }
+.type-siniestro      { background-color: #705746 !important; }
+.type-acero     { background-color: #B7B7CE !important; }
+.type-hada     { background-color: #D685AD !important; }
+
+
+/* Tabla de stats */
+.poke-stats {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.9);
+  margin-bottom: 1.5rem;
+}
+.poke-stats th,
+.poke-stats td {
+  padding: .75rem;
+  border: 1px solid #ccc;
+}
+.poke-stats th {
+  background: #e9ecef;
+  width: 30%;
+  text-align: left;
+}
+
+.site-header {
+  text-align: center;
+  padding: 1rem 0;
+  background: rgba(0,0,0,0.5);
+}
+.logo-link {
+  display: inline-block;
+}
+.site-logo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+/* B) Tabla de habilidades */
+.abilities-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+.abilities-table th,
+.abilities-table td {
+  padding: .5rem;
+  border: 1px solid #ccc;
+}
+.abilities-table th {
+  background: #f1f3f5;
+  width: 30%;
+  text-align: left;
+}
+
+/* C) Tabla de estadísticas */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+.stats-table th,
+.stats-table td {
+  padding: .5rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.stats-table th {
+  background: #f1f3f5;
+}
+
+.evolution-chain {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.evolution-chain .stage {
+  text-align: center;
+}
+.evolution-chain .evo-sprite {
+  width: 120px;
+  transition: transform .2s;
+}
+.evolution-chain .evo-sprite:hover {
+  transform: scale(1.1);
+}
+.evolution-chain .evo-level {
+  margin-top: .25rem;
+  font-size: .9rem;
+}
+.evolution-chain .arrow {
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.poke-detail .info h3 {
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
+  color: #0057b7;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: .25rem;
+}
+
+.evo-section {
+  background: transparent;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.evo-link {
+  display: inline-block;
+  text-align: center;
+  margin-right: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+.evo-sprite {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin-bottom: .5rem;
+}
+.evo-level {
+  font-size: .9rem;
+  color: #333;
+  margin-top: .25rem;
+}
+
+
+/* E) Biomas vertical */
+.biomes-list {
+  list-style: disc inside;
+  margin-bottom: 2rem;
+}
+
+.main-sprite {
+  max-width: 190%;
+  max-height: 160%;
+  transform: scale(1.6);
+}
+
+.info h3 {
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
+  color: #0057b7;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: .25rem;
+}
+
+.image-tabs {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+.image-tabs li {
+  cursor: pointer;
+  padding: 0.25rem .75rem;
+  border-radius: 4px;
+  background: #e9ecef;
+  user-select: none;
+}
+.image-tabs li.active {
+  background: #0057b7;
+  color: #fff;
+}
+
